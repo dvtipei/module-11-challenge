@@ -11,8 +11,6 @@ app.use(express.json());
 app.use(express.static('public'));
 
 const generateUniqueId = require('generate-unique-id');
-const { dirname } = require('path');
-const { allowedNodeEnvironmentFlags } = require('process');
 
 function createNewNote(body, notesArray) {
     const note = body;
@@ -33,7 +31,7 @@ app.get('/notes', (req,res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-    res.json(note);
+    res.json(notes);
 });
 
 app.post('/api/notes', (req, res) => {
